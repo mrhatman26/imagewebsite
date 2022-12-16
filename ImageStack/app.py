@@ -1,4 +1,4 @@
-#(This file controls the website)
+#This file controls the website
 from flask import Flask, render_template, url_for, request, redirect, send_file
 from util import get_downloads, increase_download_amount
 

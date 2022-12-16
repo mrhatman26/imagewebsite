@@ -1,3 +1,4 @@
+#This file handles interactions between the website and the database
 import mysql
 import mysql.connector
 from config import db_config

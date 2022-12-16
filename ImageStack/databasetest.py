@@ -1,3 +1,4 @@
+#This file is used for testing connections to the database
 import mysql
 import mysql.connector
 from config import db_config

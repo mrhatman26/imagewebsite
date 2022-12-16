@@ -1,11 +1,11 @@
 Nice to see you're actually reading this. It's quite important even though it's so short.
 
 Anyway: When deleting a user from the database (When they delete their account for example), you NEED to do the following or you'll get errors:
-1. Check to see if the user is linked to other tables. (Look at the tables called "user_scooters" and "user_depots")
+1. Check to see if the user is linked to other tables. (Look at the link tables called "link_image_user" and "link_tag_user")
 2. If the user is in the link tables, delete them from those tables FIRST!
 3. Delete the user from the main users table.
 
-LASTLY: The third link table, "scooter_depot", does NOT need to be checked. Doing so would be a waste of time.
+LASTLY: The third link table, "link_tag_image", does NOT need to be checked. Doing so would be a waste of time.
 
 That's it.
 If you don't follow these instructions, you'll most likely get an error about foreign keys.
