@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  app:
+    build: ./AppStack
+    command: python -u app.py
+    ports:
+      - 5000:5000
+    links:
+      - db
+    depends_on:
+      - db
+    container_name: appstorage
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: quest
+      MYSQL_DATABASE: appstorage
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - 1234:1234
+    container_name: appstorageDB

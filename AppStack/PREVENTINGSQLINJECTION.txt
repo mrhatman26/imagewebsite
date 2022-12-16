@@ -1,0 +1,9 @@
+SQL Injection is running SQL commands through user inputs where you request data. (More info: https://www.w3schools.com/sql/sql_injection.asp)
+
+One basic way to stop this is to do the following:
+
+    Rather than this command: cursor.execute("SELECT * FROM users WHERE user_uname = '" + username + "'")
+    Use this command instead: cursor.execute("SELECT * FROM users WHERE user_uname = %s", (username,))
+
+The %s is used in Python to replace text in strings with other variables. Here however, while it does the same, it stops any further commands from being run.
+Note: This is only a way to prevent basic SQL Injection.

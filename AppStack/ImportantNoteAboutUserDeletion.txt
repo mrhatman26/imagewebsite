@@ -1,0 +1,16 @@
+Nice to see you're actually reading this. It's quite important even though it's so short.
+
+Anyway: When deleting a user from the database (When they delete their account for example), you NEED to do the following or you'll get errors:
+1. Check to see if the user is linked to other tables. (Look at the tables called "user_scooters" and "user_depots")
+2. If the user is in the link tables, delete them from those tables FIRST!
+3. Delete the user from the main users table.
+
+LASTLY: The third link table, "scooter_depot", does NOT need to be checked. Doing so would be a waste of time.
+
+That's it.
+If you don't follow these instructions, you'll most likely get an error about foreign keys.
+
+Example commands:
+1. cursor.execute("SELECT * FROM user_scooters WHERE user_id_no = %s", (str(userid),)). Replace "user_scooters" with "user_depots" to check the other link table.
+2. cursor.execute("DELETE FROM user_scooters WHERE user_id_no = %s", (str(userid),)). Replace "user_scooters" with "user_depots" to delete the user from the other link table.
+3. cursor.exeute("DELETE FROM user_scooters WHERE user_uname = %s", (str(username),)). You could use their id instead, but it's up to you.

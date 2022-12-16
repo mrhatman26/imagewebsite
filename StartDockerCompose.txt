@@ -1,0 +1,2 @@
+docker-compose up --build
+(Must be in the same directory as docker-compose.yaml file)

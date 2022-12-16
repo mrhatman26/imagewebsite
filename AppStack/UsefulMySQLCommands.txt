@@ -1,0 +1,5 @@
+Not much here...
+
+Replace a value in a table:
+    command: UPDATE table SET table_header=new_value
+    Replaces all values under one header to the new value. (Can use a WHERE command to pick specific rows E.G: UPDATE depots SET depot_open=false WHERE depot_id = "0")

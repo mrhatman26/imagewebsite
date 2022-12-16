@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quest Compass: {{ page_name }}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="title">
+            <h1>Quest Compass</h1>
+            <h2>Your Own Quest Log</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('download')}}">Downloads</a></li>
+                <li><a href="https://gitlab.com/m3822/com4000-intergrated-assessment-quest-logger">GIT</a></li>
+            </ul>
+        </nav>
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

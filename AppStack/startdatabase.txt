@@ -1,0 +1,4 @@
+docker run --name scooterstackDB -p1234:3306 -e MYSQL_ROOT_PASSWORD=scooters -d mysql
+docker cp scooters.sql scooterstackDB:scooters.sql
+docker exec -it scooterstackDB mysql -p
+SOURCE /scooters.sql;
