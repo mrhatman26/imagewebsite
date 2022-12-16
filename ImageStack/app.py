@@ -7,17 +7,15 @@ app = Flask(__name__)
 #Main Routes
 @app.route('/') #Home Page
 def home():
-    print("Remote IP: " + str(request.remote_addr))
     return render_template('home.html', page_name="Home")
     
 @app.route('/download')
 def download():
-    print("Remote IP: " + str(request.remote_addr))
     app_info = get_downloads()
     current_app_version = app_info[0]
     old_app_versions_list = app_info[1]
     return render_template('download.html', page_name="Download", current_app_version=current_app_version, old_app_versions_list=old_app_versions_list)
-
+    
 @app.route('/download/<filelink>')
 def download_file(filelink):
     increase_download_amount(filelink)
