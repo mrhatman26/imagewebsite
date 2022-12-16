@@ -36,11 +36,11 @@ CREATE TABLE table_tags(
 /* Images and tags link table */
 DROP TABLE IF EXISTS link_tag_image;
 CREATE TABLE link_tag_image(
-    tag_id INT NOT NULL,
     image_id INT NOT NULL,
-    PRIMARY KEY(tag_id, image_id).
-    FOREIGN KEY(tag_id) REFERENCES table_tags(tag_id),
-    FOREIGN KEY(image_id) REFERENCES table_images(image_id)
+    tag_id INT NOT NULL,
+    PRIMARY KEY(image_id, tag_id),
+    FOREIGN KEY(image_id) REFERENCES table_images(image_id),
+    FOREIGN KEY(tag_id) REFERENCES table_tags(tag_id)
 );
 /* Images and users link table */
 DROP TABLE IF EXISTS link_image_user;
@@ -58,7 +58,7 @@ CREATE TABLE link_tag_user(
     user_id INT NOT NULL,
     PRIMARY KEY(tag_id, user_id),
     FOREIGN KEY(tag_id) REFERENCES table_tags(tag_id),
-    FOREIGN KEY(user_id) REFERENCES table_users(userId)
+    FOREIGN KEY(user_id) REFERENCES table_users(user_id)
 );
 
 /* Initial Data */
@@ -77,7 +77,7 @@ INSERT INTO table_tags VALUES(
     (2, "tree", NULL),
     (3, "fence", NULL),
     (4, "grass", NULL),
-    (5, "bush" NULL),
+    (5, "bush", NULL),
     (6, "public_path", NULL),
     (7, "sky", NULL),
     (8, "clouds", NULL),
@@ -94,7 +94,7 @@ INSERT INTO table_tags VALUES(
     (19, "phone", NULL),
     (20, "hat", NULL),
     (21, "river", NULL),
-    (22, "sign", NULL)
+    (22, "sign", NULL
 );
 /* Starting Images */
 INSERT INTO table_images VALUES(

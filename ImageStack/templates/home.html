@@ -1,13 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 <div id="home_div">
-    <div id="home_paragraph1">
-        <h3 id="page_nm_home">Home</h3>
-        <p>This app is a task organiser made to help users organise their quests when gaming,</p>
-        <p>the app allows users to view a summary of quests. Each quest is made up of tasks and,</p>
-        <p>when the user has completed all the tasks the overall quest is completed.</p>
-        <p>This app can be used for multiple tasks and is made to suit users' needs and help</p>
-        <p>them complete their to do list in an organised, aesthetically pleasing enviroment that is also user friendly.</p>
-        
+    <div id="home_images">
+        {% for item in images %}
+            <div id="home_single_image">
+                <img src="{{ item.image_file }}">
+            </div>
+        {% endfor %}
+    </div>        
 </div>
 {% endblock %}
